@@ -5,12 +5,11 @@
         {{ post.body }}
       </p>
       <img :src="post.img">
-      <h4>{{ post.creatorEmail }}</h4>
-      <router-link :to="{name:'ProfilePage'}">
+      <h4>{{ post.creatorEmail }} + {{ post.creatorId }} </h4>
+      <router-link :to="{name:'ProfilePage', params: { id: post.creatorId }}" :key="post.creatorId">
         <img
           :src="post.creatorPicture"
           class="user-icon"
-          @click="toProfile"
         >
       </router-link>
       <p v-if="typeof post.likes == 'number'">
@@ -19,7 +18,6 @@
       <button @click="likePost">
         Like
       </button>
-      </router-link>
     </div>
   </div>
 </template>
