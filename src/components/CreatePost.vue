@@ -20,8 +20,8 @@ export default {
     })
     return {
       state,
-      createPost() {
-        postsService.createPost()
+      async createPost() {
+        await postsService.createPost(state.newPost)
       }
 
     }

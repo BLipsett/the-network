@@ -5,6 +5,21 @@
         {{ post.body }}
       </p>
       <img :src="post.img">
+      <h4>{{ post.creatorEmail }}</h4>
+      <router-link :to="{name:'ProfilePage'}">
+        <img
+          :src="post.creatorPicture"
+          class="user-icon"
+          @click="toProfile"
+        >
+      </router-link>
+      <p v-if="typeof post.likes == 'number'">
+        {{ post.likes }}
+      </p>
+      <button @click="likePost">
+        Like
+      </button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -19,7 +34,10 @@ export default {
     const state = reactive({
     })
     return {
-      state
+      state,
+      likePost() {
+        console.log('like dis post')
+      }
     }
   }
 }
@@ -31,6 +49,12 @@ export default {
 }
 img {
   width: 100%
+}
+
+.user-icon{
+  height: 3rem;
+  width: 3rem;
+  border-radius: 25%;
 }
 
 .post-text{

@@ -1,5 +1,6 @@
 import { AppState } from '../AppState'
 import Post from '../models/Post'
+import { logger } from '../utils/Logger'
 
 const { api } = require('./AxiosService')
 
@@ -9,8 +10,9 @@ class PostsService {
     AppState.posts = res.data.posts.map(p => new Post(p))
   }
 
-  createPost() {
-    console.log('Create a post')
+  async createPost(newPost) {
+    const res = await api.post('/api/posts', newPost)
+    logger.log(res)
   }
 }
 

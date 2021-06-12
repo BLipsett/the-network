@@ -3,5 +3,9 @@ export default class Post {
     this.body = data.body
     this.id = data.id
     this.img = data.imgUrl
+    this.creator = data.creator.name
+    this.creatorEmail = data.creator.email
+    this.creatorPicture = data.creator.picture
+    this.likes = data.likes
   }
 }
