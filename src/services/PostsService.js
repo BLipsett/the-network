@@ -8,6 +8,7 @@ class PostsService {
   async getPosts() {
     const res = await api.get('/api/posts')
     AppState.posts = res.data.posts.map(p => new Post(p))
+    logger.log(res.data)
   }
 
   async getUserPosts(id) {
@@ -18,6 +19,11 @@ class PostsService {
 
   async createPost(newPost) {
     const res = await api.post('/api/posts', newPost)
+    logger.log(res)
+  }
+
+  async deletePost(id) {
+    const res = await api.delete('/api/posts/' + id)
     logger.log(res)
   }
 }

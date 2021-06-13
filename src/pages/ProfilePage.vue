@@ -1,6 +1,10 @@
 <template>
-  <h3> User Profules </h3>
-  <Thread />
+  <div class="container-fluid">
+    <div class="row">
+      <Profile />
+      <Thread />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -16,6 +20,7 @@ export default {
       try {
         await profilesService.getUserProfile(route.params.id)
         await postsService.getUserPosts(route.params.id)
+        await profilesService.getAccount()
       } catch (error) {
         Notification.error(error, 'error')
       }

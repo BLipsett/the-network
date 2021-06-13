@@ -2,6 +2,9 @@
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div class="container-fluid">
       <div class="row justify-content-between">
+        <div class="col-md-2">
+          <Login />
+        </div>
         <div class="col-md-8">
           <CreatePost v-if="user.isAuthenticated" />
           <Thread />
@@ -21,6 +24,7 @@ import { postsService } from '../services/PostsService'
 import { adsService } from '../services/AdsService'
 import CreatePost from '../components/CreatePost.vue'
 import { AppState } from '../AppState'
+import { logger } from '../utils/Logger'
 export default {
   components: { Thread, CreatePost },
   name: 'Home',
@@ -29,7 +33,7 @@ export default {
       try {
         postsService.getPosts()
         adsService.getAds()
-        console.log(AppState.user)
+        logger.log(AppState.user)
       } catch (error) {
         Notification.error(error, 'error')
       }

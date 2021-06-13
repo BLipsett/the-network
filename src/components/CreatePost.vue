@@ -1,10 +1,12 @@
 <template>
-  <div class="row">
-    <div class="col-12 d-flex flex-column">
-      <h1> Create Post form for acc holders </h1>
-      <form @submit.prevent="createPost">
-        <textarea type="text-area" v-model="state.newPost.body" placeholder="text"></textarea>
-        <input type="text" v-model="state.newPost.imgUrl" placeholder="image URL">
+  <div class="row justify-content-center ">
+    <div class="col-10 d-flex flex-column my-5 shadow b-round">
+      <form class="form-group" @submit.prevent="createPost">
+        <textarea class="form-control my-3" type="text-area" v-model="state.newPost.body" placeholder="text"></textarea>
+        <input class="form-control" type="text" v-model="state.newPost.imgUrl" placeholder="image URL">
+        <button type="button" class="btn btn-outline-success float-right my-3">
+          Send Post
+        </button>
       </form>
     </div>
   </div>
@@ -29,6 +31,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.b-round {
+  background-color: rgb(252, 249, 249);
+  border-radius: 5px;
+}
 
 </style>

@@ -8,5 +8,6 @@ export default class Post {
     this.creatorEmail = data.creator.email
     this.creatorPicture = data.creator.picture
     this.likes = data.likes
+    this.createdAt = data.createdAt
   }
 }
