@@ -34,6 +34,7 @@
           </router-link>
         </li>
       </ul>
+      <SearchBar />
       <span class="navbar-text">
         <button
           class="btn btn-outline-primary text-uppercase"

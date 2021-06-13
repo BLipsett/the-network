@@ -22,6 +22,11 @@ class ProfilesService {
   async editProfile(info) {
     await api.put('/account', info)
   }
+
+  async searchProfiles(query) {
+    const res = await api.get('/api/profiles?query=' + query)
+    logger.log('prof search here', res)
+  }
 }
 
 export const profilesService = new ProfilesService()

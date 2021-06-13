@@ -26,6 +26,12 @@ class PostsService {
     const res = await api.delete('/api/posts/' + id)
     logger.log(res)
   }
+
+  async searchPosts(query) {
+    logger.log('made it to postservice')
+    const res = await api.get('/api/posts?query=' + query)
+    logger.log('posts search', res)
+  }
 }
 
 export const postsService = new PostsService()
