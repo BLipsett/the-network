@@ -1,5 +1,5 @@
 <template>
-  <h4>Search Page</h4>
+  <h4>search prof results</h4>
 </template>
 
 <script>

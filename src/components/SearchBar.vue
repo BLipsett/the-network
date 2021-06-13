@@ -2,6 +2,7 @@
   <div class="col-md-3">
     <form @submit.prevent="searchPosts(), searchProfiles()" class="form-group">
       <input v-model="state.search.query" placeholder="search for posts or people" class="form-control">
+
       <button>search</button>
     </form>
   </div>

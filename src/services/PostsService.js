@@ -30,6 +30,7 @@ class PostsService {
   async searchPosts(query) {
     logger.log('made it to postservice')
     const res = await api.get('/api/posts?query=' + query)
+    AppState.searchPosts = res.data.posts.map(p => new Post(p))
     logger.log('posts search', res)
   }
 }
