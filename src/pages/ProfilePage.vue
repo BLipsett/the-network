@@ -1,15 +1,17 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
+  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
         <Profile />
       </div>
-      <div class="col-md-10">
-        <Thread />
+      <div class="row">
+        <div class="col-md-10">
+          <Thread />
+        </div>
+        <div class="col-md-2">
+          <Ad />
+        </div>
       </div>
-    </div>
-    <div class="col-md-2">
-      <Ad />
     </div>
   </div>
 </template>
