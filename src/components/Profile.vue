@@ -1,19 +1,37 @@
 <template>
-  <div v-if="activeAccount" class="col-md-8 offset-md-2 my-4">
-    <div v-if="activeAccount.coverImg">
-      <img class="cover-art" :src="activeAccount.coverImg" alt="background image">
+  <div v-if="activeAccount" class="col-md-10 my-4">
+    <div class="row">
+      <div class="col-12">
+        <div v-if="activeAccount.coverImg">
+          <img class="cover-art" :src="activeAccount.coverImg" alt="background image">
+        </div>
+        <div v-else>
+          <img class="cover-art" src="'https: wallpapercave.com/wp/wp4575152.jpg'">
+        </div>
+      </div>
+      <div class="col-6">
+        <img class="user-pic" :src="activeAccount.picture">
+        <div class="name-section">
+          <p>
+            {{ activeAccount.class }}
+          </p>
+          <p>
+            <b>
+              {{ activeAccount.name }}
+            </b>
+          </p>
+        </div>
+      </div>
+      <div class="col-3 ml-auto d-flex justify-content-end">
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-github-square"></i>
+        <i class="far fa-file"></i>
+      </div>
+      <div class="col-12 bio">
+        <p>{{ activeAccount.bio }} </p>
+      </div>
     </div>
-    <div v-else>
-      <img class="cover-art" src="'https: wallpapercave.com/wp/wp4575152.jpg'">
-    </div>
-    <div>
-      <img class="user-pic" :src="activeAccount.picture">
-    </div>
-    <p>{{ activeAccount.bio }} </p>
-    <p>
-      {{ activeAccount.name }}
-    </p>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profileModal" @click="ProfileModal">
+    <button type="button" class="btn btn-primary d-flex ml-auto" data-toggle="modal" data-target="#profileModal" @click="ProfileModal">
       edit
     </button>
   </div>
@@ -48,10 +66,26 @@ export default {
 
 .user-pic {
   position: absolute;
-  top: 60%;
+  top: -45%;
+  left: 10%;
   height: 6rem;
   width: 6rem;
   border-radius: 50%;
+}
+
+.name-section {
+  margin-top: 3rem;
+  margin-left: 2rem;
+}
+
+.bio {
+  font-style: italic;
+}
+
+i {
+  font-size: 2rem;
+  color: grey;
+  padding: 4px;
 }
 
 </style>

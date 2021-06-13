@@ -19,6 +19,7 @@
         <div class="modal-body">
           <form @submit.prevent="editProfile">
             <div class="form-group">
+              <input v-model="state.info.name" class="form-control" type="text" placeholder="Name">
               <input v-model="state.info.coverImg" class="form-control" type="text" placeholder="Cover Image Url">
               <input v-model="state.info.github" class="form-control" type="text" placeholder="Github">
               <input v-model="state.info.linkedin" class="form-control" type="text" placeholder="LinkedIn">

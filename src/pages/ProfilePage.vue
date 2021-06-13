@@ -1,8 +1,15 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <Profile />
-      <Thread />
+      <div class="col-md-12">
+        <Profile />
+      </div>
+      <div class="col-md-10">
+        <Thread />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <Ad />
     </div>
   </div>
 </template>
