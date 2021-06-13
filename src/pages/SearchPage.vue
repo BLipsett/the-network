@@ -6,7 +6,7 @@
           <Login />
         </div>
         <div class="col-md-6">
-          <Search />
+          <Search v-for="p in searchProfiles" :key="p.id" :profile="p" />
           <Post v-for="p in searchPosts" :key="p.id" :post="p" />
         </div>
         <div class="col-md-3">
@@ -27,7 +27,8 @@ export default {
     })
     return {
       state,
-      searchPosts: computed(() => AppState.searchPosts)
+      searchPosts: computed(() => AppState.searchPosts),
+      searchProfiles: computed(() => AppState.searchProfiles)
 
     }
   }

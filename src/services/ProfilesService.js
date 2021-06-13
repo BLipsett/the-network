@@ -26,6 +26,7 @@ class ProfilesService {
   async searchProfiles(query) {
     const res = await api.get('/api/profiles?query=' + query)
     logger.log('prof search here', res)
+    AppState.searchProfiles = res.data
   }
 }
 
