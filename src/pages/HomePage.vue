@@ -2,14 +2,14 @@
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div class="container-fluid">
       <div class="row justify-content-between">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <Login />
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
           <CreatePost v-if="user.isAuthenticated" />
           <Thread />
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <Ad />
         </div>
       </div>

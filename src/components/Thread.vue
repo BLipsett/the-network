@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row justify-content-center my-3">
-      <div class="col-md-10">
+      <div class="col-md-12">
         <Post v-for="p in posts" :key="p.id" :post="p" />
       </div>
     </div>

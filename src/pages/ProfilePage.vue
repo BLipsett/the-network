@@ -1,6 +1,6 @@
 <template>
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row justify-content-center">
         <Profile />
       </div>

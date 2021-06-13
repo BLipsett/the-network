@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid advert-bar">
-    <div class="row my-3">
-      <div class="col-12 my-3 shadow" v-for="ad in ads" :key="ad.id">
+    <div class="row my-3 justify-content-around">
+      <div class="col-10 my-3 shadow" v-for="ad in ads" :key="ad.id">
         <h4>{{ ad.title }}</h4>
         <img :src="ad.tall">
       </div>
