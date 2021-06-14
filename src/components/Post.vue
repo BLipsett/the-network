@@ -23,12 +23,12 @@
         {{ post.body }}
       </p>
       <img :src="post.img">
-      <p v-if="typeof post.likes == 'number'">
-        {{ post.likes }}
-      </p>
-      <button @click="likePost(post.id)">
-        Like
-      </button>
+      <div class="d-flex flex-row like-button justify-content-end align-items-center">
+        <span><p class="m-0" v-if="typeof post.likes == 'number'">
+          {{ post.likes }}
+        </p></span>
+        <i class="far fa-heart" @click="likePost(post.id)"></i>
+      </div>
     </div>
   </div>
 </template>
@@ -88,6 +88,13 @@ img {
 
 .post-text{
   font-size: 18px;
+}
+
+.like-button {
+  font-size: 30px;
+  color: rgb(226, 131, 146);
+  margin: 5px 3px 5px 0;
+  cursor: pointer;
 }
 
 </style>

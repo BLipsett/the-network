@@ -26,6 +26,10 @@
               <input v-model="state.info.picture" class="form-control" type="text" placeholder="Profile Image Url">
               <input v-model="state.info.class" class="form-control" type="text" placeholder="Attending Class">
               <input v-model="state.info.resume" class="form-control" type="text" placeholder="Resume">
+              <div class="custom-control custom-checkbox">
+                <input v-model="state.info.graduated" type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Graduated?</label>
+              </div>
               <textarea v-model="state.info.bio" class="form-control" type="text-area" placeholder="Bio Section" rows="5"></textarea>
             </div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">
