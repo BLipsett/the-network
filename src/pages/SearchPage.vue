@@ -6,7 +6,15 @@
           <Login />
         </div>
         <div class="col-md-6">
-          <Search v-for="p in searchProfiles" :key="p.id" :profile="p" />
+          <div>
+            <h2 class="mt-5 border-bottom">
+              Profile Results
+            </h2>
+            <Search v-for="p in searchProfiles" :key="p.id" :profile="p" />
+          </div>
+          <h2 class="mt-5 border-bottom">
+            Post Results
+          </h2>
           <Post v-for="p in searchPosts" :key="p.id" :post="p" />
         </div>
         <div class="col-md-3">

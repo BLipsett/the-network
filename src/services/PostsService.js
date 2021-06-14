@@ -6,7 +6,7 @@ const { api } = require('./AxiosService')
 
 class PostsService {
   async getPosts() {
-    const res = await api.get('/api/posts')
+    const res = await api.get('/api/posts?page=' + AppState.currentPage)
     AppState.posts = res.data.posts.map(p => new Post(p))
     logger.log(res.data)
   }
@@ -32,6 +32,10 @@ class PostsService {
     const res = await api.get('/api/posts?query=' + query)
     AppState.searchPosts = res.data.posts.map(p => new Post(p))
     logger.log('posts search', res)
+  }
+
+  async likePost(id) {
+    await api.post('/api/posts/' + id + '/like')
   }
 }
 

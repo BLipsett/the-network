@@ -15,7 +15,7 @@
             </h5>
             <p>{{ timeAgo }}</p>
           </div>
-          <i class="fas fa-trash ml-auto" @click="deletePost(post.id)">
+          <i v-if="account.id === post.creatorId" class="fas fa-trash ml-auto" @click="deletePost(post.id)">
           </i>
         </div>
       </div>
@@ -26,7 +26,7 @@
       <p v-if="typeof post.likes == 'number'">
         {{ post.likes }}
       </p>
-      <button @click="likePost">
+      <button @click="likePost(post.id)">
         Like
       </button>
     </div>
@@ -39,6 +39,8 @@ import { logger } from '../utils/Logger'
 import { postsService } from '../services/PostsService'
 import moment from 'moment'
 import { profilesService } from '../services/ProfilesService'
+import { computed } from '@vue/runtime-core'
+import { AppState } from '../AppState'
 export default {
   props: {
     post: { type: Object, required: true }
@@ -51,8 +53,10 @@ export default {
     return {
       state,
       timeAgo,
-      likePost() {
+      account: computed(() => AppState.account),
+      likePost(id) {
         logger.log('like dis post')
+        postsService.likePost(id)
       },
 
       deletePost(id) {

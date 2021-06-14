@@ -19,6 +19,7 @@ export default {
     return {
       state,
       posts: computed(() => AppState.posts)
+
     }
   }
 

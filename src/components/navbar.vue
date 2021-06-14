@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link :to="{ name: 'Home' }" class="nav-link">
+          <router-link :to="{ name: 'Home' }" class="nav-link" @click="setPage">
             Home
           </router-link>
         </li>
@@ -84,6 +84,7 @@
 import { AuthService } from '../services/AuthService'
 import { AppState } from '../AppState'
 import { computed, reactive } from 'vue'
+import { postsService } from '../services/PostsService'
 export default {
   name: 'Navbar',
   setup() {
@@ -93,11 +94,16 @@ export default {
     return {
       state,
       user: computed(() => AppState.user),
+      currentPage: AppState.currentPage,
       async login() {
         AuthService.loginWithPopup()
       },
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })
+      },
+      setPage() {
+        AppState.currentPage = 1
+        postsService.getPosts()
       }
     }
   }

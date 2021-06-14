@@ -7,7 +7,7 @@ export default class Post {
     this.creatorId = data.creator.id
     this.creatorEmail = data.creator.email
     this.creatorPicture = data.creator.picture
-    this.likes = data.likes
+    this.likes = data.likes.length
     this.createdAt = data.createdAt
   }
 }

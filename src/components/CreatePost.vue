@@ -4,7 +4,7 @@
       <form class="form-group" @submit="createPost">
         <textarea class="form-control my-3" type="text-area" v-model="state.newPost.body" placeholder="text"></textarea>
         <input class="form-control" type="text" v-model="state.newPost.imgUrl" placeholder="image URL">
-        <button type="button" class="btn btn-outline-success float-right my-3">
+        <button type="submit" class="btn btn-outline-success float-right my-3">
           Send Post
         </button>
       </form>

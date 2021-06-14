@@ -8,6 +8,14 @@
         <div class="col-md-6">
           <CreatePost v-if="user.isAuthenticated" />
           <Thread />
+          <div>
+            <button @click="changePage(-1)">
+              Prev
+            </button>
+            <button @click="changePage(1)">
+              Next
+            </button>
+          </div>
         </div>
         <div class="col-md-3">
           <Ad />
@@ -39,7 +47,11 @@ export default {
       }
     })
     return {
-      user: computed(() => AppState.user)
+      user: computed(() => AppState.user),
+      changePage(n) {
+        AppState.currentPage += n
+        postsService.getPosts()
+      }
 
     }
   }

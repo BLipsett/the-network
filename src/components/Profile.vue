@@ -11,6 +11,7 @@
       </div>
       <div class="col-6">
         <img class="user-pic" :src="activeAccount.picture">
+        <i v-if="activeAccount. graduated == true" class="fas fa-user-graduate"></i>
         <div class="name-section">
           <p>
             {{ activeAccount.class }}
