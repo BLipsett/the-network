@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-wrap loginBox">
+  <div v-if="user.isAuthenticated" class="d-flex flex-wrap loginBox">
     <div class="col-10 justify-content-center">
       <router-link :to="{name:'ProfilePage', params: { id: account.id }}" :key="account.id" @click="setActiveAccount(account.id)">
         <img class="userPic" :src="account.picture">
@@ -13,6 +13,9 @@
       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="blank"><i class="far fa-file"><p>{{ account.resume }}</p></i>
       </a>
     </div>
+  </div>
+  <div v-else>
+    <h3>Log In to create posts and view profiles</h3>
   </div>
 </template>
 

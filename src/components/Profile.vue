@@ -32,7 +32,13 @@
         <p>{{ activeAccount.bio }} </p>
       </div>
     </div>
-    <button type="button" class="btn btn-primary d-flex ml-auto" data-toggle="modal" data-target="#profileModal" @click="ProfileModal">
+    <button v-if="account.id === activeAccount.id"
+            type="button"
+            class="btn btn-primary d-flex ml-auto"
+            data-toggle="modal"
+            data-target="#profileModal"
+            @click="ProfileModal"
+    >
       edit
     </button>
   </div>
@@ -49,7 +55,8 @@ export default {
     })
     return {
       state,
-      activeAccount: computed(() => AppState.activeAccount)
+      activeAccount: computed(() => AppState.activeAccount),
+      account: computed(() => AppState.account)
 
     }
   }

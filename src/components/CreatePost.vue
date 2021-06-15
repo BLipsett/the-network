@@ -15,6 +15,7 @@
 <script>
 import { reactive } from '@vue/reactivity'
 import { postsService } from '../services/PostsService'
+import Notification from '../utils/Notification'
 export default {
   setup() {
     const state = reactive({
@@ -23,7 +24,11 @@ export default {
     return {
       state,
       async createPost() {
-        await postsService.createPost(state.newPost)
+        try {
+          await postsService.createPost(state.newPost)
+        } catch (error) {
+          Notification.toast('Must add text to submit a post')
+        }
       }
 
     }

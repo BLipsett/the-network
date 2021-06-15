@@ -11,7 +11,7 @@
           </router-link>
           <div class=" ml-3">
             <h5 class="m-0">
-              {{ post.creatorEmail }}
+              {{ post.creator }}
             </h5>
             <p>{{ timeAgo }}</p>
           </div>

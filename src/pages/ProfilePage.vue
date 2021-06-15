@@ -17,13 +17,15 @@
 </template>
 
 <script>
-import { watchEffect } from '@vue/runtime-core'
+import { onMounted, reactive, watchEffect } from '@vue/runtime-core'
 import { postsService } from '../services/PostsService'
 import { profilesService } from '../services/ProfilesService'
 import { useRoute } from 'vue-router'
+import Notification from '../utils/Notification'
 
 export default {
   setup() {
+    const state = reactive({})
     const route = useRoute()
     watchEffect(async() => {
       try {
@@ -34,7 +36,17 @@ export default {
         Notification.error(error, 'error')
       }
     })
+
+    onMounted(async() => {
+      try {
+        await profilesService.setActiveAccount(route.params.id)
+      } catch (error) {
+        Notification.toast('borkded')
+      }
+    })
+
     return {
+      state
 
     }
   }

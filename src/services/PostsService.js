@@ -1,14 +1,19 @@
 import { AppState } from '../AppState'
 import Post from '../models/Post'
 import { logger } from '../utils/Logger'
+import Notification from '../utils/Notification'
 
 const { api } = require('./AxiosService')
 
 class PostsService {
   async getPosts() {
-    const res = await api.get('/api/posts?page=' + AppState.currentPage)
-    AppState.posts = res.data.posts.map(p => new Post(p))
-    logger.log(res.data)
+    try {
+      const res = await api.get('/api/posts?page=' + AppState.currentPage)
+      AppState.posts = res.data.posts.map(p => new Post(p))
+      logger.log(res.data)
+    } catch (error) {
+      Notification.error(error, 'error')
+    }
   }
 
   async getUserPosts(id) {
@@ -18,8 +23,12 @@ class PostsService {
   }
 
   async createPost(newPost) {
-    const res = await api.post('/api/posts', newPost)
-    logger.log(res)
+    try {
+      const res = await api.post('/api/posts', newPost)
+      logger.log(res)
+    } catch (error) {
+      Notification.error(error, 'error')
+    }
   }
 
   async deletePost(id) {
